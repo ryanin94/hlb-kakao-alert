@@ -2,7 +2,7 @@ name: HLB FDA Result Kakao Alert
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "* * * * *"
   workflow_dispatch:
 
 permissions:
