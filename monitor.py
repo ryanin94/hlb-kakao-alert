@@ -15,6 +15,11 @@ STATE_FILE = "state.json"
 DRUG_TERMS = [
     "lirafugratinib",
     "rly-4008",
+    "rivoceranib",
+    "camrelizumab",
+    "liver cancer",
+    "hepatocellular carcinoma",
+    "hlb",
 ]
 
 RESULT_TERMS = [
@@ -30,6 +35,17 @@ RESULT_TERMS = [
     "delayed",
     "refuse to approve",
     "refusal",
+    "resubmit",
+    "resubmission",
+    "resubmits",
+    "resubmitted",
+    "new drug application",
+    "nda",
+    "class 1",
+    "class 2",
+    "filing accepted",
+    "accepted for review",
+    "acceptance",
 ]
 
 HEADERS = {
@@ -110,7 +126,7 @@ def send_kakao(title, url):
     template = {
         "object_type": "text",
         "text": (
-            "🚨 HLB 리라푸그라티닙 FDA 결과 감지\n\n"
+            "🚨 HLB·엘레바 FDA 주요 뉴스\n\n"
             f"{title}\n\n"
             "출처: Elevar Therapeutics 공식 뉴스룸\n"
             f"{url}\n\n"
