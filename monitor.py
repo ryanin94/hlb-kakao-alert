@@ -100,7 +100,7 @@ def refresh_access_token():
     key = os.environ["KAKAO_REST_API_KEY"]
     secret = os.environ["KAKAO_CLIENT_SECRET"]
 
-    r = requests.post(
+       r = requests.post(
         "https://kauth.kakao.com/oauth/token",
         data={
             "grant_type": "refresh_token",
@@ -110,9 +110,13 @@ def refresh_access_token():
         },
         timeout=20,
     )
-    r.raise_for_status()
-    data = r.json()
 
+    if not r.ok:
+        print("Kakao API Error:", r.status_code)
+        print("Kakao Response:", r.text)
+        r.raise_for_status()
+
+    data = r.json()
     # If Kakao rotates the refresh token, print it so the GitHub secret can
     # be updated. In the current short-lived monitoring window this is usually
     # not needed, but the code handles the response safely.
